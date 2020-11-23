@@ -4,15 +4,17 @@ from PyQt5.QtGui import QPainter, QColor
 from PyQt5 import uic
 from random import randrange
 
+from Ui import Ui_Form
 
-class CircleDrawer(QWidget):
+
+class CircleDrawer(QWidget, Ui_Form):
     CIRCLE_RADIUS = 50
     CIRCLES_NUMBER = 5
     BORDER = 5
 
     def __init__(self):
         super().__init__()
-        uic.loadUi("Ui.ui", self)
+        self.setupUi(self)
         self.ellipses = []
         self.need_to_draw = False
         self.drawButton.clicked.connect(self.draw)
